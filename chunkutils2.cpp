@@ -25,6 +25,7 @@
 #include "src/PhpLightArray.h"
 #include "src/PhpPalettedBlockArray.h"
 #include "src/PhpSubChunkConverter.h"
+#include "src/PhpNoiseGenerator.h"
 
 extern "C" {
 #include "php.h"
@@ -39,6 +40,7 @@ PHP_MINIT_FUNCTION(chunkutils2)
 	register_light_array_class();
 	register_paletted_block_array_class();
 	register_sub_chunk_converter_class();
+	register_noise_generator_class();
 	return SUCCESS;
 }
 /* }}} */
@@ -49,6 +51,7 @@ PHP_MINFO_FUNCTION(chunkutils2)
 {
 	php_info_print_table_start();
 	php_info_print_table_header(2, "chunkutils2 support", "enabled");
+	php_info_print_table_row(2, "Native noise generation (Aquamarine)", "enabled");
 	php_info_print_table_end();
 }
 /* }}} */
